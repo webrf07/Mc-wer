@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Mc Wer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="index.html" class="logo">Mc <span>Wer</span></a>
+    <nav class="nav-links">
+      <a href="product.html?cat=food">Food</a>
+      <a href="product.html?cat=drinks">Drinks</a>
+      <a href="product.html?cat=desserts">Desserts</a>
+      <a href="cart.html" class="cart-btn">
+        🛒 Cart
+        <span class="cart-count" style="display:none">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- CART -->
+  <div class="cart-container">
+    <h1 class="cart-title">🛒 Your Cart</h1>
+
+    <div id="cartEmpty" class="cart-empty" style="display:none;">
+      <p>Your cart is empty</p>
+      <a href="index.html" class="back-btn">← Start Ordering</a>
+    </div>
+
+    <div id="cartItems">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="cart-summary" id="cartSummary" style="display:none;">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+
+      <div class="location-group">
+        <label for="addressInput">📍 Delivery Address</label>
+        <textarea id="addressInput" rows="3" placeholder="Enter your full address..."></textarea>
+      </div>
+
+      <button class="buy-btn" onclick="placeOrder()">
+        🛍️ Buy Now — Place Order
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 <span class="brand">Mc Wer</span> — Fast • Fresh • Delicious</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

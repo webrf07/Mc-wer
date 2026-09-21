@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Mc Wer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="index.html" class="logo">Mc <span>Wer</span></a>
+    <nav class="nav-links">
+      <a href="product.html?cat=food">Food</a>
+      <a href="product.html?cat=drinks">Drinks</a>
+      <a href="product.html?cat=desserts">Desserts</a>
+      <a href="cart.html" class="cart-btn">
+        🛒 Cart
+        <span class="cart-count" style="display:none">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- TOP IMAGE BAR -->
+  <div class="top-bar">
+    <div class="top-images">
+      <img class="top-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop" alt="Burger">
+      <img class="top-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=200&fit=crop" alt="Pizza">
+      <img class="top-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=300&h=200&fit=crop" alt="Taco">
+      <img class="top-img" src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=300&h=200&fit=crop" alt="Fries">
+      <img class="top-img" src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=200&fit=crop" alt="Cola">
+      <img class="top-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" alt="Ice Cream">
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+    <h1 class="section-title" id="sectionTitle">Menu</h1>
+  </div>
+
+  <!-- ITEMS GRID -->
+  <div class="items-grid" id="itemsGrid">
+    <!-- Filled by JS -->
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <img id="modalImg" src="" alt="">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <h2 id="modalName"></h2>
+        <p id="modalDesc" style="color:#aaa; margin-bottom:6px;"></p>
+        <p class="base-price" id="modalBasePrice"></p>
+
+        <!-- SIZE (Food only) -->
+        <div class="option-group" id="sizeGroup">
+          <label class="title">Choose Size</label>
+          <div class="size-options">
+            <button class="size-btn active" data-size="L" onclick="selectSize('L')">L</button>
+            <button class="size-btn" data-size="XL" onclick="selectSize('XL')">XL +$0.70</button>
+            <button class="size-btn" data-size="XXL" onclick="selectSize('XXL')">XXL +$1.40</button>
+          </div>
+        </div>
+
+        <!-- ADDONS (Food) -->
+        <div class="option-group" id="addonGroup">
+          <label class="title">Add Sauces (+$0.40 each)</label>
+          <div class="addons">
+            <label class="addon-item">
+              <input type="checkbox" class="addon-check" onchange="toggleAddon('Ketchup', this.checked)">
+              🍅 Ketchup
+            </label>
+            <label class="addon-item">
+              <input type="checkbox" class="addon-check" onchange="toggleAddon('Mayonnaise', this.checked)">
+              🥄 Mayonnaise
+            </label>
+            <label class="addon-item">
+              <input type="checkbox" class="addon-check" onchange="toggleAddon('Mustard', this.checked)">
+              🟡 Mustard
+            </label>
+          </div>
+        </div>
+
+        <!-- TOPPINGS (Desserts) -->
+        <div class="option-group" id="toppingGroup" style="display:none;">
+          <label class="title">Add Toppings (+$0.60 each)</label>
+          <div class="addons">
+            <label class="addon-item">
+              <input type="checkbox" class="topping-check" onchange="toggleTopping('Chocolate', this.checked)">
+              🍫 Chocolate
+            </label>
+            <label class="addon-item">
+              <input type="checkbox" class="topping-check" onchange="toggleTopping('Nuts', this.checked)">
+              🥜 Nuts
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="total-price" id="modalTotal">$0.00</div>
+          <button class="add-to-cart-btn" onclick="handleAddToCart()">
+            🛒 Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 <span class="brand">Mc Wer</span> — Fast • Fresh • Delicious</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
